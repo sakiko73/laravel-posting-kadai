@@ -9,7 +9,7 @@ class PostController extends Controller {
 
     // 一覧ページ
     public function index() {
-        $posts = Post::oldest()->get();
+        $posts = Post::orderBy('updated_at', 'asc')->get();
         return view('posts.index',compact('posts'));
     }
 
